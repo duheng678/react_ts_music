@@ -5,7 +5,7 @@ interface IState {
 }
 const initialState: IState = {
   count: 99,
-  message: 'hello'
+  message: 'hello-git'
 }
 const counterSlice = createSlice({
   name: 'counter',
