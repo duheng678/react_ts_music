@@ -1,31 +1,15 @@
 import React, { Suspense } from 'react'
 import { useRoutes } from 'react-router-dom'
-
 import routes from '@/router'
-import { useAppSelector, useAppDispatch, appShallowEqual } from '@/store'
-import { changeCount } from '@/store/modules/counter'
-import Download from '@/views/download'
+import AppHeader from './components/app-header'
+import AppFooter from './components/app-footer'
 
-import ClassDemo from '@/views/demo/class'
 function App() {
-  const { count } = useAppSelector(
-    (state) => ({
-      count: state.counter.count
-    }),
-    appShallowEqual
-  )
-  const dispatch = useAppDispatch()
-
-  function handleClick() {
-    dispatch(changeCount(1))
-  }
   return (
     <div className="App">
-      <h2>{count}</h2>
-      <button onClick={handleClick}> +1</button>
-      <ClassDemo name="moon"></ClassDemo>
-      <Download>sdf</Download>
+      <AppHeader />
       <Suspense fallback="">{useRoutes(routes)}</Suspense>
+      <AppFooter />
     </div>
   )
 }
