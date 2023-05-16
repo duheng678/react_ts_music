@@ -6,6 +6,7 @@ import { useAppSelector, useAppDispatch, appShallowEqual } from '@/store'
 import { changeCount } from '@/store/modules/counter'
 import Download from '@/views/download'
 
+import ClassDemo from '@/views/demo/class'
 function App() {
   const { count } = useAppSelector(
     (state) => ({
@@ -22,6 +23,7 @@ function App() {
     <div className="App">
       <h2>{count}</h2>
       <button onClick={handleClick}> +1</button>
+      <ClassDemo name="moon"></ClassDemo>
       <Download>sdf</Download>
       <Suspense fallback="">{useRoutes(routes)}</Suspense>
     </div>
