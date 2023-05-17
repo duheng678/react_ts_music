@@ -8,16 +8,12 @@ interface IProps {
 interface IBannerData {
   imageUrl: string
   targetId: number
-  adid: any
   targetType: number
   titleColor: string
   typeTitle: string
-  url: any
+
   exclusive: boolean
-  extMonitorInfo: any
-  adSource: any
-  adLocation: any
-  adDispatchJson: any
+
   encodeId: string
   scm: string
   bannerBizType: string
