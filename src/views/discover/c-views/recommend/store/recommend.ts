@@ -7,6 +7,8 @@ export const fetchBannerDataAction = createAsyncThunk(
   async (arg, { dispatch }) => {
     try {
       const res = await getBanners()
+      console.log(res)
+
       dispatch(changeBannerData(res.banners))
     } catch (error) {
       console.log(error)

@@ -1,8 +1,8 @@
 import styled from 'styled-components'
 
 export const TopSlideWrapper = styled.div`
-  background: url('https://p1.music.126.net/cos_JVmOI-2d-j0kc0rzMw==/109951168623805898.jpg')
-    center center / 6000px;
+  /* background: url('https://p1.music.126.net/cos_JVmOI-2d-j0kc0rzMw==/109951168623805898.jpg')
+    center center / 6000px; */
 
   .banner {
     height: 270px;
@@ -13,11 +13,49 @@ export const TopSlideWrapper = styled.div`
 export const TopSlideLeftWrapper = styled.div`
   position: relative;
   width: 730px;
+
   .banner-item {
     overflow: hidden;
     height: 270px;
     .image {
       width: 100%;
+      transition: in 1s ease;
+    }
+    @keyframes in {
+      0% {
+        opacity: 0;
+        visibility: hidden;
+      }
+      100% {
+        opacity: 1;
+        visibility: visible;
+      }
+    }
+  }
+  .dots {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+
+    > li {
+      margin: 0 2px;
+
+      .item {
+        display: inline-block;
+        width: 20px;
+        height: 20px;
+        background: url(${require('@/assets/img/banner_sprite.png')}) 3px -343px;
+        cursor: pointer;
+
+        &:hover,
+        &.active {
+          background-position: -16px -343px;
+        }
+      }
     }
   }
 `
