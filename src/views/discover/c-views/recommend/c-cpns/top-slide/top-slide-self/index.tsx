@@ -22,7 +22,7 @@ const TopSlide: FC<IProps> = () => {
 
   const indexRef = useRef(currentIndex)
   const timerRef = useRef<ReturnType<typeof setInterval>>()
-  const { banners } = useAppSelector(
+  const { banners = [] } = useAppSelector(
     (state) => ({
       banners: state.recommend.banners
     }),
@@ -35,6 +35,7 @@ const TopSlide: FC<IProps> = () => {
   }, [banners])
 
   function handleChangeClick(flag, type) {
+    if (!imgRef.current) return
     const time = type === 'timer' ? 500 : 0
 
     let newIndex = flag ? currentIndex + 1 : currentIndex - 1
@@ -53,11 +54,6 @@ const TopSlide: FC<IProps> = () => {
       setDotIndex(indexRef.current)
     }, time)
   }
-
-  // function handleAfterChange() {
-  //   setBgImage(banners[indexRef.current].imageUrl + '?imageView&blur=40x20')
-  //   setDotIndex(currentIndex)
-  // }
 
   let imageUrl = ''
   if (banners.length) {

@@ -1,18 +1,29 @@
 import React, { memo } from 'react'
 import type { FC, ReactNode } from 'react'
+import { Link } from 'react-router-dom'
 import { HeaderV1Wrapper } from './style'
 
 interface IProps {
   children?: ReactNode
+  title?: string
+  keywords?: string[]
+  moreText?: string
+  moreLink?: string
 }
 
-const AreaHeaderV1: FC<IProps> = () => {
+const AreaHeaderV1: FC<IProps> = (props) => {
+  const {
+    title = '默认标题',
+    keywords = [],
+    moreText = '更多',
+    moreLink = '/'
+  } = props
   return (
     <HeaderV1Wrapper className="sprite_02">
       <div className="left">
-        <h3 className="title">热门推荐</h3>
+        <h3 className="title">{title}</h3>
         <div className="keywords">
-          {['华语', '流行', '摇滚'].map((item) => {
+          {keywords.map((item) => {
             return (
               <div className="item" key={item}>
                 <span className="link"> {item}</span>
@@ -23,7 +34,9 @@ const AreaHeaderV1: FC<IProps> = () => {
         </div>
       </div>
       <div className="right">
-        <a href="">更多</a>
+        <Link className="more" to={moreLink}>
+          {moreText}
+        </Link>
         <i className="icon sprite_02"></i>
       </div>
     </HeaderV1Wrapper>

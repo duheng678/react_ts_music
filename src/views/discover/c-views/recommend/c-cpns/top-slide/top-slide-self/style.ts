@@ -5,7 +5,7 @@ export const TopSlideWrapper = styled.div`
     center center / 6000px; */
 
   .banner {
-    height: 270px;
+    height: 285px;
     display: flex;
     position: relative;
   }
@@ -16,9 +16,11 @@ export const TopSlideLeftWrapper = styled.div`
 
   .banner-item {
     overflow: hidden;
-    height: 270px;
+    height: 285px;
     .image {
       width: 100%;
+      height: 100%;
+      object-fit: cover;
     }
   }
   .fade-exit {
@@ -62,7 +64,7 @@ export const TopSlideRightWrapper = styled.a.attrs({
   target: '_blank'
 })`
   width: 254px;
-  height: 270px;
+  height: 285px;
   background: url(${require('@/assets/img/download.png')});
 `
 
