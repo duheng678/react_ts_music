@@ -25,8 +25,7 @@ const Recommend: FC<IProps> = () => {
 
   return (
     <RecommendWrapper>
-      <TopSlide></TopSlide>
-
+      <TopSlide></TopSlide>d
       <RecommendSection className="wrap-v2">
         <RecommendLeft>
           <HotRecommend></HotRecommend>
