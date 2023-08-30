@@ -30,7 +30,7 @@ const Recommend: FC<IProps> = () => {
       <RecommendSection className="wrap-v2">
         <RecommendLeft>
           <HotRecommend></HotRecommend>
-          <NewAlbum></NewAlbum>多少发多少
+          <NewAlbum></NewAlbum>多少发多少dd
         </RecommendLeft>
         <RecommendRight></RecommendRight>
       </RecommendSection>
