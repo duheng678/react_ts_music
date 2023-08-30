@@ -2,45 +2,21 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
 
 import { getBanners, getHotRecommend, getNewAlbum } from '../service/recommend'
 
-export const fetchBannerDataAction = createAsyncThunk(
-  'banners',
-  async (arg, { dispatch }) => {
-    try {
-      const res = await getBanners()
-      console.log(res)
-
-      dispatch(changeBannerData(res.banners))
-    } catch (error) {
-      console.log(error)
-    }
-  }
-)
-// 热门推荐
-export const fetchHotRecommend = createAsyncThunk(
-  'hotRecommend',
-  async (arg, { dispatch }) => {
-    try {
-      const res = await getHotRecommend(8)
-      console.log(res)
-
-      if (res.code == 200) dispatch(changeHotRecommendData(res.result))
-    } catch (error) {
-      console.log(error)
-    }
-  }
-)
-// 新碟上架
-export const fetchNewAlbum = createAsyncThunk(
-  'newAlbum',
-  async (arg, { dispatch }) => {
-    try {
-      const res = await getNewAlbum(10)
-      console.log(res)
-
+export const fetchRecommendDataAction = createAsyncThunk(
+  'fetchData',
+  (ary, { dispatch }) => {
+    // 轮播图数据
+    getBanners().then((res) => {
+      if (res.code === 200) dispatch(changeBannerData(res.banners))
+    })
+    // 热门推荐
+    getHotRecommend(8).then((res) => {
+      if (res.code === 200) dispatch(changeHotRecommendData(res.result))
+    })
+    // 新碟上架
+    getNewAlbum(10).then((res) => {
       if (res.code == 200) dispatch(changeNewAlbumData(res.albums.slice(0, 10)))
-    } catch (error) {
-      console.log(error)
-    }
+    })
   }
 )
 

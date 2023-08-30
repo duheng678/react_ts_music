@@ -2,11 +2,7 @@ import React, { memo, useEffect, useState } from 'react'
 import type { FC, ReactNode } from 'react'
 import request from '@/service'
 import { useAppDispatch } from '@/store'
-import {
-  fetchBannerDataAction,
-  fetchHotRecommend,
-  fetchNewAlbum
-} from './store/recommend'
+import { fetchRecommendDataAction } from './store/recommend'
 import TopSlide from './c-cpns/top-slide/top-slide-self'
 import {
   RecommendLeft,
@@ -24,9 +20,7 @@ interface IProps {
 const Recommend: FC<IProps> = () => {
   const dispatch = useAppDispatch()
   useEffect(() => {
-    dispatch(fetchBannerDataAction())
-    dispatch(fetchHotRecommend())
-    dispatch(fetchNewAlbum())
+    dispatch(fetchRecommendDataAction())
   }, [])
 
   return (
@@ -36,7 +30,7 @@ const Recommend: FC<IProps> = () => {
       <RecommendSection className="wrap-v2">
         <RecommendLeft>
           <HotRecommend></HotRecommend>
-          <NewAlbum></NewAlbum>
+          <NewAlbum></NewAlbum>多少发多少
         </RecommendLeft>
         <RecommendRight></RecommendRight>
       </RecommendSection>
